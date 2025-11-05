@@ -82,7 +82,7 @@ streamlit run app.py --server.port 8502 (u can name any other port)
 
 ## How It Works
 
-The application uses LangChain's experimental graph transformers with OpenAI's gpt-4o model to:
+The application uses LangChain's experimental graph transformers with Groq llama-3.3-70b-versatile model to:
 1. Extract entities from the input text
 2. Identify relationships between these entities
 3. Generate a graph structure representing this information
