@@ -1,56 +1,59 @@
-# Knowledge Graph Generator
+# Knowledge Graph Generator with llama-3.3-70b-versatile
 
-A Streamlit application that extract graph data (entities and relationships) from text input using LangChain and OpenAI's GPT models, and generates interactive graphs.
-![CleanShot 2025-05-28 at 13 11 46](https://github.com/user-attachments/assets/4fef9158-8dd8-432d-bb8a-b53953a82c6c)
+A Streamlit application that extract graph data (entities and relationships) from text input using LangChain and Groq API  llama-3.3-70b-versatile model, and generates interactive graphs.
 
-👉 This repo is part of my project tutorial on Youtube:
-[![](https://img.youtube.com/vi/O-T_6KOXML4/0.jpg)](https://www.youtube.com/watch?v=O-T_6KOXML4)
+![alt text](<Screenshot (39).png>)
+
+**The grpah which is generated with txt documet is also their in the Repo named as THE DATAPIPELINE MANAGER**
+
+![alt text](<Screenshot (40).png>)
+
+✅ Entities & relationships I extract for my knowledge graph:
+Classes: ETLProcessor, ModelTrainer, Logger, Notifier
+Functions/methods: extract, transform, load, train_model, evaluate_model, send_email
+Parameters & return types: source: str, df: pd.DataFrame, mode: str, etc.
+Dependencies: pandas, numpy, scikit-learn, xgboost
+Workflow relations: calls, orchestrated-by, retries-on-failure, triggers-notification
 
 ## Features
 
 - Two input methods: text upload (.txt files) or direct text input
 - Interactive knowledge graph visualization
 - Customizable graph display with physics-based layout
-- Entity relationship extraction powered by OpenAI's GPT-4o model
+- Entity relationship extraction powered by OpenAI's gpt-4o model
 
 ## Installation
 
 ### Prerequisites
 
 - Python 3.8 or higher
-- OpenAI API key
+- Groq API key
+- Model name - llama-3.3-70b-versatile
 
 ### Dependencies
 
 The application requires the following Python packages:
 
-- langchain (>= 0.1.0): Core LLM framework
-- langchain-experimental (>= 0.0.45): Experimental LangChain features
-- langchain-openai (>= 0.1.0): OpenAI integration for LangChain
-- python-dotenv (>= 1.0.0): Environment variable support
-- pyvis (>= 0.3.2): Graph visualization
-- streamlit (>= 1.32.0): Web UI framework
+# Core LangChain packages
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-experimental>=0.0.45
+langchain-groq>=0.1.0  # ✅ Use Groq instead of OpenAI
+
+# Environment variable support
+python-dotenv>=1.0.0
+
+# Graph visualization
+pyvis>=0.3.2
+
+# Web UI
+streamlit>=1.32.0
 
 Install all required dependencies using the provided requirements.txt file:
 
 ```bash
 pip install -r requirements.txt
 ```
-
-### Setup
-
-1. Clone this repository:
-   ```bash
-   git clone [repository-url]
-   cd knowledge_graph_app_2
-   ```
-
-   Note: Replace `[repository-url]` with the actual URL of this repository.
-
-2. Create a `.env` file in the root directory with your OpenAI API key:
-   ```
-   OPENAI_API_KEY=your_openai_api_key_here
-   ```
 
 ## Running the Application
 
@@ -60,7 +63,9 @@ To run the Streamlit app:
 streamlit run app.py
 ```
 
-This will start the application and open it in your default web browser (typically at http://localhost:8501).
+This will start the application and open it in your default web browser (typically at http://localhost:8501)
+or 
+streamlit run app.py --server.port 8502 (u can name any other port)
 
 ## Usage
 
@@ -77,14 +82,8 @@ This will start the application and open it in your default web browser (typical
 
 ## How It Works
 
-The application uses LangChain's experimental graph transformers with OpenAI's GPT-4o model to:
+The application uses LangChain's experimental graph transformers with OpenAI's gpt-4o model to:
 1. Extract entities from the input text
 2. Identify relationships between these entities
 3. Generate a graph structure representing this information
 4. Visualize the graph using PyVis, a Python interface for the vis.js visualization library
-
-## License
-
-This project is licensed under the MIT License - a permissive open source license that allows for free use, modification, and distribution of the software.
-
-For more details, see the [MIT License](https://opensource.org/licenses/MIT) documentation.

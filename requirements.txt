@@ -1,7 +1,8 @@
-# Core LLM and LangChain packages
-langchain>=0.1.0
+# Core LangChain packages
+langchain>=0.3.0
+langchain-core>=0.3.0
 langchain-experimental>=0.0.45
-langchain-openai>=0.1.0
+langchain-groq>=0.1.0  # ✅ Use Groq instead of OpenAI
 
 # Environment variable support
 python-dotenv>=1.0.0
